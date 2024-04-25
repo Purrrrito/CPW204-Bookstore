@@ -13,3 +13,6 @@ To compile the TypeScript files with the watch option,
 run the following command: `tsc --watch` Using the 
 watch option, only requires us to compile once each 
 time the project is opened.
+
+## Link to the site
+https://purrrrito.github.io/CPW204-Bookstore/
