@@ -54,6 +54,8 @@ function processBook() {
      * is invalid, null will be returned
      */
     function getBook():Book {
+        clearAllErrorMessages();
+
         // Get all inputs
         let isbnTextBox = document.querySelector('#isbn') as HTMLInputElement;
         let titleTextBox = document.querySelector('#title') as HTMLInputElement;
@@ -112,5 +114,16 @@ function processBook() {
      */
     function addBook(b:Book):void {
 
+    }
+
+    function clearAllErrorMessages() {
+        // Get all error spans
+        let allSpans = document.querySelectorAll("span.error-msg")
+
+        // Loop through, and set each span to an empty string
+        for(let i = 0; i < allSpans.length; i++) {
+            let currentSpans = allSpans[i];
+            currentSpans.textContent = "";
+        }
     }
 }
