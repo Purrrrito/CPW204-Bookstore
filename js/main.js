@@ -4,7 +4,7 @@ let myBook = new Book();
 myBook.isbn = "123";
 myBook.price = 9.99;
 myBook.title = "Programming for beginners";
-myBook.releaseDate = new Date(2023, 10, 8);
+myBook.releaseDate = new Date(2023, 9, 8);
 console.log(myBook);
 window.onload = function () {
     let addBookBtn = document.querySelector("#add-book");
@@ -45,12 +45,23 @@ function processBook() {
             isValidData = false;
             releaseDateTextBox.nextElementSibling.textContent = "Release date must be a valid date";
         }
+        if (isValidData) {
+            let addedBook = new Book();
+            addedBook.isbn = isbn;
+            addedBook.price = price;
+            addedBook.title = title;
+            addedBook.releaseDate = new Date(releaseDate);
+            return addedBook;
+        }
+        return null;
     }
     function isValidIsbn(data) {
         let regex = /^\d{13}$/;
         return regex.test(data);
     }
     function addBook(b) {
+        alert("Data was valid, book added");
+        console.log(b);
     }
     function clearAllErrorMessages() {
         let allSpans = document.querySelectorAll("span.error-msg");

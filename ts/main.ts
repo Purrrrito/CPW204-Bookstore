@@ -28,7 +28,7 @@ let myBook = new Book();
 myBook.isbn = "123";
 myBook.price = 9.99;
 myBook.title = "Programming for beginners";
-myBook.releaseDate = new Date(2023, 10, 8);
+myBook.releaseDate = new Date(2023, 9, 8);
 
 console.log(myBook);
 
@@ -94,6 +94,17 @@ function processBook() {
             isValidData = false;
             releaseDateTextBox.nextElementSibling.textContent = "Release date must be a valid date";
         }
+
+        if (isValidData) {
+            let addedBook = new Book();
+            addedBook.isbn = isbn;
+            addedBook.price = price;
+            addedBook.title = title;
+            addedBook.releaseDate = new Date(releaseDate);
+
+            return addedBook;
+        }
+        return null; // Return null if any invalid data is present
     }
 
     /**
@@ -113,7 +124,8 @@ function processBook() {
      * @param b The Book containing valid data to be added
      */
     function addBook(b:Book):void {
-
+        alert("Data was valid, book added");
+        console.log(b);
     }
 
     function clearAllErrorMessages() {
