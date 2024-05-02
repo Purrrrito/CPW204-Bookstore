@@ -57,7 +57,7 @@ function processBook() {
         // Get all inputs
         let isbnTextBox = document.querySelector('#isbn') as HTMLInputElement;
         let titleTextBox = document.querySelector('#title') as HTMLInputElement;
-        let pricetextBox = document.querySelector('#price') as HTMLInputElement;
+        let priceTextBox = document.querySelector('#price') as HTMLInputElement;
         let releaseDateTextBox = document.querySelector('#release-date') as HTMLInputElement;
 
         // Validate data
@@ -68,6 +68,21 @@ function processBook() {
         if (!isValidIsbn(isbn)) {
             isValidData = false;
             isbnTextBox.nextElementSibling.textContent = "ISBN must be 13 digits only";
+        }
+
+        // Validate title
+        let title:string = titleTextBox.value;
+        if (title.trim() == "") {
+            isValidData = false;
+            let titleErrorSpan = titleTextBox.nextElementSibling;
+            titleErrorSpan.textContent = "You must provide a title"
+        }
+
+        // Validate price
+        let price = parseFloat(priceTextBox.value);
+        if (isNaN(price)) {
+            isValidData = false;
+            priceTextBox.nextElementSibling.textContent = "Price must be a positive number"
         }
 
         

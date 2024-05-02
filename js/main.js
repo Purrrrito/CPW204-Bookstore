@@ -19,13 +19,24 @@ function processBook() {
     function getBook() {
         let isbnTextBox = document.querySelector('#isbn');
         let titleTextBox = document.querySelector('#title');
-        let pricetextBox = document.querySelector('#price');
+        let priceTextBox = document.querySelector('#price');
         let releaseDateTextBox = document.querySelector('#release-date');
         let isValidData = true;
         let isbn = isbnTextBox.value;
         if (!isValidIsbn(isbn)) {
             isValidData = false;
             isbnTextBox.nextElementSibling.textContent = "ISBN must be 13 digits only";
+        }
+        let title = titleTextBox.value;
+        if (title.trim() == "") {
+            isValidData = false;
+            let titleErrorSpan = titleTextBox.nextElementSibling;
+            titleErrorSpan.textContent = "You must provide a title";
+        }
+        let price = parseFloat(priceTextBox.value);
+        if (isNaN(price)) {
+            isValidData = false;
+            priceTextBox.nextElementSibling.textContent = "Price must be a positive number";
         }
     }
     function isValidIsbn(data) {
