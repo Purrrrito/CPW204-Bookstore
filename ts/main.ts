@@ -23,16 +23,6 @@ class Book {
     releaseDate : Date;
 }
 
-// Book object test code
-let myBook = new Book();
-myBook.isbn = "123";
-myBook.price = 9.99;
-myBook.title = "Programming for beginners";
-myBook.releaseDate = new Date(2023, 9, 8);
-
-console.log(myBook);
-
-
 window.onload = function() {
     // Set up button click for add book form
     let addBookBtn = document.querySelector("#add-book") as HTMLButtonElement;
