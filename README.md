@@ -16,3 +16,8 @@ time the project is opened.
 
 ## Link to the site
 https://purrrrito.github.io/CPW204-Bookstore/
+
+### VS Code Extensions
+The following extensions are very helpful for development
+- [Bootstrap IntelliSense](https://marketplace.visualstudio.com/items?itemName=hossaini.bootstrap-intellisense) IntelliSense by Hosain Hossaini
+- [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) by Ritwick Dey
