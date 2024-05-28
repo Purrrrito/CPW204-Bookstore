@@ -154,32 +154,23 @@ function addBookToWebpage(b:Book):void {
  */
 function addBookToStorage(b:Book):void {
     const BookStorageKey = "Books";
-
     // Read existing books out of storage
     let bookData = localStorage.getItem(BookStorageKey);
 
-    // if bookData is null, the "Books" key did not exist
-    if (bookData == null) {
-        // Create a new list and add out current book
-        let books:Book[] = [];
-        books.push(b);
+    // Initialize with existing bookData is not null, or empty array if null
+    // This is a JS ternary/conditional operator
+    let books:Book[] = bookData ? JSON.parse(bookData) : [];
 
-        // Add to localStorage
-        bookData = JSON.stringify(books);
-        localStorage.setItem(BookStorageKey, bookData);
-    }
-    else {
-        // Parse string into a list of books and add a new book to the list
-        // store the newly modified list back into storage
-        let books:Book[] = JSON.parse(bookData);
-        books.push(b);
+    books.push(b);
 
-        // Add back to localStorage
-        bookData = JSON.stringify(books);
-        localStorage.setItem(BookStorageKey, bookData)
-    }
+    // Add back to localStorage
+    bookData = JSON.stringify(books);
+    localStorage.setItem(BookStorageKey, bookData)
 }
 
+/**
+ * Clears all validation error message spans in the form
+ */
 function clearAllErrorMessages() {
     // Get all error spans
     let allSpans = document.querySelectorAll("span.error-msg")
