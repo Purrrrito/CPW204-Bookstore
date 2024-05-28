@@ -171,6 +171,12 @@ function addBookToStorage(b:Book):void {
     else {
         // Parse string into a list of books and add a new book to the list
         // store the newly modified list back into storage
+        let books:Book[] = JSON.parse(bookData);
+        books.push(b);
+
+        // Add back to localStorage
+        bookData = JSON.stringify(books);
+        localStorage.setItem(BookStorageKey, bookData)
     }
 }
 
